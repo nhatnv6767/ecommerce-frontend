@@ -4,35 +4,6 @@ import {Menu} from 'antd';
 
 const {SubMenu} = Menu;
 
-const items = [
-    {
-        label: 'Home',
-        key: 'home',
-        icon: <MailOutlined/>,
-    },
-    {
-        label: 'Register',
-        key: 'SubMenu',
-        icon: <SettingOutlined/>,
-        children: [
-            {
-                type: 'group',
-                label: '',
-                children: [
-                    {
-                        label: 'Option 1',
-                        key: 'setting:1',
-                    },
-                    {
-                        label: 'Option 2',
-                        key: 'setting:2',
-                    },
-                ],
-            },
-
-        ],
-    }
-];
 
 const Header = () => {
 
@@ -45,7 +16,24 @@ const Header = () => {
     }
 
     return (
-        <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" items={items}/>
+
+        <Menu
+            mode="horizontal"
+            defaultSelectedKeys={[current]}
+            onClick={handleClick}
+        >
+            <Menu.Item key="home" icon={<MailOutlined/>}>
+                Home
+            </Menu.Item>
+            <SubMenu key="SubMenu" title="Register" icon={<SettingOutlined/>}>
+                <Menu.Item key="setting:1">
+                    Option 1
+                </Menu.Item>
+                <Menu.Item key="setting:2">
+                    Option 2
+                </Menu.Item>
+            </SubMenu>
+        </Menu>
     );
 };
 
