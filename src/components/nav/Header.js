@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {AppstoreOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons';
-import type {MenuProps} from 'antd';
 import {Menu} from 'antd';
+import {MailOutlined, AppstoreOutlined, SettingOutlined} from '@ant-design/icons';
 
 const {SubMenu} = Menu;
 
@@ -16,7 +15,7 @@ const Header = () => {
     return (
         <Menu
             mode="horizontal"
-            selectedKeys={[current]}
+            defaultSelectedKeys={[current]}
             onClick={handleClick}
         >
             <Menu.Item key="mail" icon={<MailOutlined/>}>
