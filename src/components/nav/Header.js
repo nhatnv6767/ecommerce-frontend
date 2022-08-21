@@ -7,7 +7,7 @@ const {SubMenu} = Menu;
 const items = [
     {
         label: 'Home',
-        key: 'mail',
+        key: 'home',
         icon: <MailOutlined/>,
     },
     {
@@ -37,7 +37,7 @@ const items = [
 const Header = () => {
 
 
-    const [current, setCurrent] = useState("")
+    const [current, setCurrent] = useState("home")
 
     const handleClick = (e) => {
         console.log('click ', e);
