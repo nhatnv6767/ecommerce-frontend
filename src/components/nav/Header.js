@@ -37,7 +37,7 @@ const items = [
 const Header = () => {
 
 
-    const [current, setCurrent] = useState("mail")
+    const [current, setCurrent] = useState("")
 
     const handleClick = (e) => {
         console.log('click ', e);
