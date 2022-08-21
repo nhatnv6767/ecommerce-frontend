@@ -22,7 +22,7 @@ const Header = () => {
             <Menu.Item key="mail" icon={<MailOutlined/>}>
                 Home
             </Menu.Item>
-            <SubMenu title="Register" icon={<SettingOutlined/>}>
+            <SubMenu key="SubMenu" title="Register" icon={<SettingOutlined/>}>
 
                 <Menu.Item key="setting:1">
                     Option 1
