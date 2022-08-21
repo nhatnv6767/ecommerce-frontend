@@ -17,28 +17,21 @@ const Header = () => {
         <Menu
             mode="horizontal"
             selectedKeys={[current]}
-            defaultSelectedKeys={['mail']}
             onClick={handleClick}
         >
             <Menu.Item key="mail" icon={<MailOutlined/>}>
                 Navigation One
             </Menu.Item>
-            <Menu.SubMenu key="SubMenu" title="Navigation Two - Submenu" icon={<SettingOutlined/>}>
-                <Menu.Item key="two" icon={<AppstoreOutlined/>}>
-                    Navigation Two
-                </Menu.Item>
-                <Menu.Item key="three" icon={<AppstoreOutlined/>}>
-                    Navigation Three
-                </Menu.Item>
-                <Menu.ItemGroup title="Item Group">
-                    <Menu.Item key="four" icon={<AppstoreOutlined/>}>
+            <SubMenu title="Navigation Two - Submenu" icon={<SettingOutlined/>}>
+                <Menu.ItemGroup title="Item 1">
+                    <Menu.Item key="setting:1" icon={<AppstoreOutlined/>}>
                         Navigation Four
                     </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined/>}>
+                    <Menu.Item key="setting:2" icon={<AppstoreOutlined/>}>
                         Navigation Five
                     </Menu.Item>
                 </Menu.ItemGroup>
-            </Menu.SubMenu>
+            </SubMenu>
         </Menu>
     );
 };
