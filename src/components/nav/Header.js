@@ -20,17 +20,17 @@ const Header = () => {
             onClick={handleClick}
         >
             <Menu.Item key="mail" icon={<MailOutlined/>}>
-                Navigation One
+                Home
             </Menu.Item>
-            <SubMenu title="Navigation Two - Submenu" icon={<SettingOutlined/>}>
-                <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1" icon={<AppstoreOutlined/>}>
-                        Navigation Four
-                    </Menu.Item>
-                    <Menu.Item key="setting:2" icon={<AppstoreOutlined/>}>
-                        Navigation Five
-                    </Menu.Item>
-                </Menu.ItemGroup>
+            <SubMenu title="Register" icon={<SettingOutlined/>}>
+
+                <Menu.Item key="setting:1">
+                    Option 1
+                </Menu.Item>
+                <Menu.Item key="setting:2">
+                    Option 2
+                </Menu.Item>
+
             </SubMenu>
         </Menu>
     );
