@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {AppstoreOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons';
+import {AppstoreOutlined, SettingOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
 import {Menu} from 'antd';
 
 const {SubMenu} = Menu;
@@ -22,10 +22,18 @@ const Header = () => {
             defaultSelectedKeys={[current]}
             onClick={handleClick}
         >
-            <Menu.Item key="home" icon={<MailOutlined/>}>
+            <Menu.Item key="home" icon={<AppstoreOutlined/>}>
                 Home
             </Menu.Item>
-            <SubMenu key="SubMenu" title="Register" icon={<SettingOutlined/>}>
+
+            <Menu.Item key="login" icon={<UserOutlined/>}>
+                Login
+            </Menu.Item>
+
+            <Menu.Item key="register" icon={<UserAddOutlined/>}>
+                Register
+            </Menu.Item>
+            <SubMenu key="SubMenu" title="Username" icon={<SettingOutlined/>}>
                 <Menu.Item key="setting:1">
                     Option 1
                 </Menu.Item>
