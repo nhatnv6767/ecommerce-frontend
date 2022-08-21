@@ -29,7 +29,7 @@ const Header = () => {
             <Menu.Item
                 key="register"
                 icon={<UserAddOutlined/>}
-                className="float-end"
+                className="float-right"
             >
                 Register
             </Menu.Item>
@@ -37,7 +37,7 @@ const Header = () => {
             <Menu.Item
                 key="login"
                 icon={<UserOutlined/>}
-                className="float-end"
+                className="float-right"
             >
                 Login
             </Menu.Item>
