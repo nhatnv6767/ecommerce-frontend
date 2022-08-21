@@ -26,13 +26,22 @@ const Header = () => {
                 Home
             </Menu.Item>
 
-            <Menu.Item key="login" icon={<UserOutlined/>}>
+            <Menu.Item
+                key="register"
+                icon={<UserAddOutlined/>}
+                className="float-right"
+            >
+                Register
+            </Menu.Item>
+
+            <Menu.Item
+                key="login"
+                icon={<UserOutlined/>}
+                className="float-right"
+            >
                 Login
             </Menu.Item>
 
-            <Menu.Item key="register" icon={<UserAddOutlined/>}>
-                Register
-            </Menu.Item>
             <SubMenu key="SubMenu" title="Username" icon={<SettingOutlined/>}>
                 <Menu.Item key="setting:1">
                     Option 1
