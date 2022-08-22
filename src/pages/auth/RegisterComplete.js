@@ -39,7 +39,7 @@ const RegisterComplete = ({history}) => {
             <div className="row">
                 <div className="col-md-6 offset-md-3">
                     <h4>Register</h4>
-                    {registerForm()}
+                    {completeRegistrationForm()}
                 </div>
             </div>
         </div>
