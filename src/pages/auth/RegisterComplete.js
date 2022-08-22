@@ -3,8 +3,11 @@ import React, {useEffect, useState} from 'react';
 import {getAuth, signInWithEmailLink, updatePassword, updateEmail} from "firebase/auth";
 import {app} from "../../firebase"
 import {toast} from "react-toastify"
+import {useNavigate} from "react-router-dom";
 
-const RegisterComplete = ({history}) => {
+const RegisterComplete = () => {
+
+    const history = useNavigate()
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,7 +45,7 @@ const RegisterComplete = ({history}) => {
                 // redux store
                 console.log("user: ", user, "idTokenResult: ", idTokenResult)
                 // redirect
-                history.push("/")
+                history("/")
             }
         } catch (error) {
             //
