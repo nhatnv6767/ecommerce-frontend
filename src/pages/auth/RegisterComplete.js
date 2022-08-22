@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
-import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
+import {getAuth, signInWithEmailLink} from "firebase/auth";
 import {app} from "../../firebase"
 import {toast} from "react-toastify"
 
@@ -17,8 +17,13 @@ const RegisterComplete = ({history}) => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-
-
+        const auth = getAuth(app);
+        try {
+            const result = await signInWithEmailLink(auth, email, window.location.href)
+            console.log("RESULT", result)
+        } catch (error) {
+            //
+        }
     }
 
     const completeRegistrationForm = () =>
@@ -34,9 +39,9 @@ const RegisterComplete = ({history}) => {
                 className="form-control"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                onFocus
                 placeholder="Password"
             />
+            <br/>
             <button type="submit" className="btn btn-raised">
                 Complete Registration
             </button>
