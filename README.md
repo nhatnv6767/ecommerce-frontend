@@ -84,3 +84,6 @@ here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-
 
 -> https://ant.design/
 / find Menu
+
+-> https://firebase.google.com/docs/auth/web/email-link-auth
+/ firebase auth sign in email

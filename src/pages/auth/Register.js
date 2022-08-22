@@ -5,7 +5,7 @@ const Register = () => {
     const [email, setEmail] = useState("");
 
     const handleSubmit = () => {
-
+        //
     }
 
     const registerForm = () =>
