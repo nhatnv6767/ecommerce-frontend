@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
 import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
+import {app} from "../../firebase"
 import {toast, ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.min.css"
 
@@ -11,7 +12,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-        const auth = getAuth();
+        const auth = getAuth(app);
         const config = {
             url: "http://localhost:3000/register/complete",
             handleCodeInApp: true,
