@@ -7,8 +7,13 @@ const Register = () => {
 
     const [email, setEmail] = useState("");
 
-    const handleSubmit = () => {
-        //
+    const handleSubmit = (e) => {
+        // dont reload page
+        e.preventDefault()
+        const config = {
+            url: "",
+            handleCodeInApp: true,
+        }
     }
 
     const registerForm = () =>
