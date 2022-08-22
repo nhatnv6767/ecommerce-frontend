@@ -23,6 +23,7 @@ const RegisterComplete = ({history}) => {
             console.log("RESULT", result)
         } catch (error) {
             //
+            console.log(error)
         }
     }
 
