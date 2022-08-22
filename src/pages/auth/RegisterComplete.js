@@ -29,6 +29,14 @@ const RegisterComplete = ({history}) => {
                 value={email}
                 disabled
             />
+            <input
+                type="password"
+                className="form-control"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                onFocus
+                placeholder="Password"
+            />
             <button type="submit" className="btn btn-raised">
                 Complete Registration
             </button>
