@@ -14,6 +14,7 @@ const App = () => {
     return (
         <>
             <Header/>
+            <ToastContainer/>
             <Routes>
                 <Route path="/" element={<Home/>} exact/>
                 <Route path="/login" element={<Login/>} exact/>
