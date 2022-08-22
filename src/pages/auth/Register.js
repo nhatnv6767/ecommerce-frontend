@@ -11,17 +11,24 @@ const Register = () => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
+        const auth = getAuth();
         const config = {
             url: "http://localhost:3000/register/complete",
             handleCodeInApp: true,
         }
 
-        await sendSignInLinkToEmail(email, config)
-        toast.success(`Email is sent to ${email}. Click the link to complete registration.`)
-        // save user email in local storage
-        window.localStorage.setItem("emailForRegistration", email)
-        // clear state
-        setEmail("")
+        await sendSignInLinkToEmail(auth, email, config).then(() => {
+            toast.success(`Email is sent to ${email}. Click the link to complete registration.`)
+            // save user email in local storage
+            window.localStorage.setItem("emailForRegistration", email)
+            // clear state
+            setEmail("")
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ...
+        });
+
     }
 
     const registerForm = () =>
@@ -42,6 +49,7 @@ const Register = () => {
             <div className="row">
                 <div className="col-md-6 offset-md-3">
                     <h4>Register</h4>
+                    <ToastContainer/>
                     {registerForm()}
                 </div>
             </div>
