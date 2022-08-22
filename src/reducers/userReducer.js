@@ -3,6 +3,13 @@ export function userReducer(state = null, action) {
         case "LOGGED_IN_USER":
             // payload contains user information
             return action.payload;
+
+        case "LOGOUT":
+            // user: {}
+            return action.payload;
+
+        default:
+            return state;
     }
 }
 
