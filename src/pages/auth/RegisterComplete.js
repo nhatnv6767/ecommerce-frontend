@@ -21,9 +21,22 @@ const RegisterComplete = ({history}) => {
         try {
             const result = await signInWithEmailLink(auth, email, window.location.href)
             console.log("RESULT", result)
+            if (result.user.emailVerified) {
+                // remove user email from local storage
+                window.localStorage.removeItem("emailForRegistration")
+                // get user id token
+                let user = auth.currentUser
+                await user.updatePassword(password)
+                const idTokenRuslt = await user.getIdTokenResult()
+                // redux store
+                console.log("user: ", user, "idTokenResult: ", idTokenRuslt)
+                // redirect
+                // history.push("/")
+            }
         } catch (error) {
             //
             console.log(error)
+            toast.error(error.message)
         }
     }
 
