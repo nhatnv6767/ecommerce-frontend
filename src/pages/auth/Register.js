@@ -1,7 +1,15 @@
 import React from 'react';
 
 const Register = () => {
-    const registerForm = () => <p>register form</p>
+
+    const handleSubmit = () => {
+
+    }
+
+    const registerForm = () =>
+        <form onSubmit={handleSubmit}>
+            <input type="email" className="form-control"/>
+        </form>
     return (
         <div className="container p-5">
             <div className="row">
