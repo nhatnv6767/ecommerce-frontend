@@ -10,7 +10,7 @@ const RegisterComplete = ({history}) => {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        console.log(window.localStorage.getItem("emailForRegistration"))
+        setEmail(window.localStorage.getItem("emailForRegistration"))
     }, [])
 
 
@@ -27,8 +27,7 @@ const RegisterComplete = ({history}) => {
                 type="email"
                 className="form-control"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
-                autoFocus
+                disabled
             />
             <button type="submit" className="btn btn-raised">
                 Complete Registration
