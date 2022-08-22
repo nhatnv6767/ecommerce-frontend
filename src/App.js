@@ -30,7 +30,8 @@ const App = () => {
                 dispatch({
                     type: "LOGGED_IN_USER",
                     payload: {
-                        name: "Noone",
+                        email: user.email,
+                        token: idTokenResult,
                     }
                 })
             }
