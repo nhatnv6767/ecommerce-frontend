@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
-import {getAuth, signInWithEmailLink} from "firebase/auth";
+import {getAuth, signInWithEmailLink, updatePassword, updateEmail} from "firebase/auth";
 import {app} from "../../firebase"
 import {toast} from "react-toastify"
 
@@ -17,6 +17,16 @@ const RegisterComplete = ({history}) => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
+
+        if (!email || !password) {
+            toast.error("Email and password are required")
+            return
+        }
+        if (password.length < 6) {
+            toast.error("Password must be at least 6 characters")
+            return
+        }
+
         const auth = getAuth(app);
         try {
             const result = await signInWithEmailLink(auth, email, window.location.href)
@@ -26,10 +36,11 @@ const RegisterComplete = ({history}) => {
                 window.localStorage.removeItem("emailForRegistration")
                 // get user id token
                 let user = auth.currentUser
-                await user.updatePassword(password)
-                const idTokenRuslt = await user.getIdTokenResult()
+                // await user.updatePassword(password)
+                await updatePassword(user, password)
+                const idTokenResult = await user.getIdTokenResult()
                 // redux store
-                console.log("user: ", user, "idTokenResult: ", idTokenRuslt)
+                console.log("user: ", user, "idTokenResult: ", idTokenResult)
                 // redirect
                 // history.push("/")
             }
