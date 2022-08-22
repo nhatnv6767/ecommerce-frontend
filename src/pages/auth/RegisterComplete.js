@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
 import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
 import {app} from "../../firebase"
@@ -8,6 +8,10 @@ const RegisterComplete = ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        console.log(window.localStorage.getItem("emailForRegistration"))
+    }, [])
 
 
     const handleSubmit = async (e) => {
