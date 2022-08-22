@@ -31,14 +31,14 @@ const RegisterComplete = ({history}) => {
                 autoFocus
             />
             <button type="submit" className="btn btn-raised">
-                Register
+                Complete Registration
             </button>
         </form>
     return (
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    <h4>Register</h4>
+                    <h4>Register Complete</h4>
                     {completeRegistrationForm()}
                 </div>
             </div>
