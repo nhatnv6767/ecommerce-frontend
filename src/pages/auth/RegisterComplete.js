@@ -4,9 +4,11 @@ import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
 import {app} from "../../firebase"
 import {toast} from "react-toastify"
 
-const RegisterComplete = () => {
+const RegisterComplete = (props) => {
 
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    // props.history
 
     const handleSubmit = async (e) => {
         // dont reload page
