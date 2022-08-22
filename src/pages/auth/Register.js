@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Register = () => {
+
+    const [email, setEmail] = useState("");
 
     const handleSubmit = () => {
 
@@ -8,7 +10,7 @@ const Register = () => {
 
     const registerForm = () =>
         <form onSubmit={handleSubmit}>
-            <input type="email" className="form-control"/>
+            <input type="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
         </form>
     return (
         <div className="container p-5">
