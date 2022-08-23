@@ -39,7 +39,7 @@ const Header = ({auth}) => {
             onClick={handleClick}
         >
             <Item key="home" icon={<AppstoreOutlined/>}>
-                <Link to="/">Home - {JSON.stringify(user.email)}</Link>
+                <Link to="/">Home</Link>
             </Item>
 
             {
@@ -68,7 +68,12 @@ const Header = ({auth}) => {
 
             {
                 user && (
-                    <SubMenu key="SubMenu" title="Username" icon={<SettingOutlined/>}>
+                    <SubMenu
+                        key="SubMenu"
+                        title="Username"
+                        icon={<SettingOutlined/>}
+                        className="float-end"
+                    >
                         <Item key="setting:1">
                             Option 1
                         </Item>
