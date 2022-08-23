@@ -5,9 +5,11 @@ import {toast} from "react-toastify"
 import {Button} from "antd";
 import {MailOutlined} from '@ant-design/icons';
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Login = ({auth}) => {
 
+    const history = useNavigate()
     const [email, setEmail] = useState("nhatnvse90183@gmail.com");
     const [password, setPassword] = useState("123456")
 
@@ -20,9 +22,19 @@ const Login = ({auth}) => {
             console.log(result)
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult()
-            
+
+            dispatch({
+                type: "LOGGED_IN_USER",
+                payload: {
+                    email: user.email,
+                    token: idTokenResult.token,
+                }
+            })
+            history('/')
         } catch (e) {
             //
+            console.log(e)
+            toast.error(e.message)
         }
     }
 
