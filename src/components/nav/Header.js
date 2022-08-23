@@ -70,7 +70,7 @@ const Header = ({auth}) => {
                 user && (
                     <SubMenu
                         key="SubMenu"
-                        title="Username"
+                        title={user?.email && user.email.split('@')[0]}
                         icon={<SettingOutlined/>}
                         className="float-end"
                     >
