@@ -105,8 +105,8 @@ const Login = ({auth}) => {
                 <div className="col-md-6 offset-md-3">
                     {
                         loading
-                            ? (<h4>Login</h4>)
-                            : (<h4 className="text-danger">Loading..</h4>)
+                            ? (<h4 className="text-danger">Loading..</h4>)
+                            : (<h4>Login</h4>)
                     }
                     {loginForm()}
 
