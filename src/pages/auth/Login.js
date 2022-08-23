@@ -80,7 +80,9 @@ const Login = ({auth}) => {
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    <h4>Login</h4>
+                    {
+                        loading ? <h4>Login</h4> : <h4>Loading..</h4>
+                    }
                     {loginForm()}
                 </div>
             </div>
