@@ -1,37 +1,20 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
-import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
-import {app} from "../../firebase"
+import {sendSignInLinkToEmail} from "firebase/auth";
 import {toast} from "react-toastify"
 
-const Login = () => {
+const Login = ({auth}) => {
 
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
 
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-        const auth = getAuth(app);
-        const config = {
-            url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
-            handleCodeInApp: true,
-        }
-
-        await sendSignInLinkToEmail(auth, email, config).then(() => {
-            toast.success(`Email is sent to ${email}. Click the link to complete registration.`)
-            // save user email in local storage
-            window.localStorage.setItem("emailForRegistration", email)
-            // clear state
-            setEmail("")
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage)
-        });
 
     }
 
-    const registerForm = () =>
+    const loginForm = () =>
         <form onSubmit={handleSubmit}>
             <input
                 type="email"
@@ -41,17 +24,25 @@ const Login = () => {
                 placeholder="Your email"
                 autoFocus
             />
+            <input
+                type="password"
+                className="form-control"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Your password"
+                autoFocus
+            />
             <br/>
             <button type="submit" className="btn btn-raised">
-                Register
+                Login
             </button>
         </form>
     return (
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    <h4>Register</h4>
-                    {registerForm()}
+                    <h4>Login</h4>
+                    {loginForm()}
                 </div>
             </div>
         </div>

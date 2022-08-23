@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
-import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
-import {app} from "../../firebase"
+import {sendSignInLinkToEmail} from "firebase/auth";
 import {toast} from "react-toastify"
 
-const Register = () => {
+const Register = ({auth}) => {
 
     const [email, setEmail] = useState("");
 
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-        const auth = getAuth(app);
         const config = {
             url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
             handleCodeInApp: true,

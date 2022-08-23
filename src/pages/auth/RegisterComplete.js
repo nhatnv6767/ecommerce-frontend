@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
-import {getAuth, signInWithEmailLink, updatePassword, updateEmail} from "firebase/auth";
-import {app} from "../../firebase"
+import {signInWithEmailLink, updatePassword} from "firebase/auth";
 import {toast} from "react-toastify"
 import {useNavigate} from "react-router-dom";
 
-const RegisterComplete = () => {
+const RegisterComplete = ({auth}) => {
 
     const history = useNavigate()
 
@@ -30,7 +29,6 @@ const RegisterComplete = () => {
             return
         }
 
-        const auth = getAuth(app);
         try {
             const result = await signInWithEmailLink(auth, email, window.location.href)
             console.log("RESULT", result)

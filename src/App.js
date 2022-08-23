@@ -46,9 +46,9 @@ const App = () => {
             <ToastContainer/>
             <Routes>
                 <Route path="/" element={<Home/>} exact/>
-                <Route path="/login" element={<Login/>} exact/>
-                <Route path="/register" element={<Register/>} exact/>
-                <Route path="/register/complete" element={<RegisterComplete/>} exact/>
+                <Route path="/login" element={<Login auth={auth}/>} exact/>
+                <Route path="/register" element={<Register auth={auth}/>} exact/>
+                <Route path="/register/complete" element={<RegisterComplete auth={auth}/>} exact/>
             </Routes>
         </>
     );
