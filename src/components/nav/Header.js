@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {AppstoreOutlined, SettingOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
 import {Menu} from 'antd';
 import {Link} from 'react-router-dom'
-// import firebase from "firebase";
+import {useNavigate} from "react-router-dom";
 
 import {useDispatch} from "react-redux";
 
@@ -12,7 +12,7 @@ const {SubMenu, Item} = Menu;
 
 const Header = ({auth}) => {
 
-
+    const history = useNavigate()
     const [current, setCurrent] = useState("home")
     let dispatch = useDispatch()
 
@@ -23,7 +23,11 @@ const Header = ({auth}) => {
 
     const logout = () => {
         auth.signOut()
-        dispatch({})
+        dispatch({
+            type: "LOGOUT",
+            payload: null,
+        })
+        history("/login")
     }
 
     return (
