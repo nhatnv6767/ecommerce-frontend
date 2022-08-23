@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
-import {signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+import {signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
 import {toast} from "react-toastify"
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -10,8 +10,15 @@ const ForgotPassword = ({auth}) => {
     const [email, setEmail] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
+
+        const config = {
+            url: process.env.REACT_APP_FORGOT_PASSWORD_REDIRECT_URL,
+            handleCodeInApp: true,
+        }
+        await sendPasswordResetEmail(auth, email, config)
     }
 
     return (
