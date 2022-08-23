@@ -47,7 +47,17 @@ const Login = ({auth}) => {
             .then(async (result) => {
                 const {user} = result;
                 const idTokenResult = await user.getIdTokenResult()
-
+                dispatch({
+                    type: "LOGGED_IN_USER",
+                    payload: {
+                        email: user.email,
+                        token: idTokenResult.token,
+                    }
+                })
+                history('/')
+            }).catch(err => {
+                console.log(err)
+                toast.error(err.message)
             })
     }
 
