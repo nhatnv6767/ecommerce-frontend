@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
-import {sendSignInLinkToEmail} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify"
 import {Button} from "antd";
 import {MailOutlined} from '@ant-design/icons';
@@ -13,7 +13,12 @@ const Login = ({auth}) => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-        console.table(email, password)
+        try {
+            const result = await signInWithEmailAndPassword(auth, email, password)
+            console.log(result)
+        } catch (e) {
+            //
+        }
     }
 
     const loginForm = () =>
