@@ -42,7 +42,7 @@ const App = () => {
 
     return (
         <>
-            <Header/>
+            <Header auth={auth}/>
             <ToastContainer/>
             <Routes>
                 <Route path="/" element={<Home/>} exact/>
