@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {AppstoreOutlined, SettingOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
+import {AppstoreOutlined, LogoutOutlined, SettingOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
 import {Menu} from 'antd';
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom";
@@ -65,7 +65,7 @@ const Header = ({auth}) => {
                     Option 2
                 </Item>
                 <Item
-                    icon={<UserOutlined/>}
+                    icon={<LogoutOutlined/>}
                     onClick={logout}
                 >
                     Logout
