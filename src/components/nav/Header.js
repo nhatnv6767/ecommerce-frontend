@@ -39,7 +39,7 @@ const Header = ({auth}) => {
             onClick={handleClick}
         >
             <Item key="home" icon={<AppstoreOutlined/>}>
-                <Link to="/">Home</Link>
+                <Link to="/">Home </Link>
             </Item>
 
             <Item
