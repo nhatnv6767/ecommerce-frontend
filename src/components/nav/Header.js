@@ -14,7 +14,7 @@ const Header = ({auth}) => {
 
     const [current, setCurrent] = useState("home")
     let dispatch = useDispatch()
-    let state = useSelector((state) => state)
+    let {user} = useSelector((state) => ({...state}))
     let history = useNavigate()
 
     const handleClick = (e) => {
@@ -39,40 +39,52 @@ const Header = ({auth}) => {
             onClick={handleClick}
         >
             <Item key="home" icon={<AppstoreOutlined/>}>
-                <Link to="/">Home </Link>
+                <Link to="/">Home - {JSON.stringify(user.email)}</Link>
             </Item>
 
-            <Item
-                key="register"
-                icon={<UserAddOutlined/>}
-                className="float-end"
-            >
-                <Link to="/register">Register</Link>
-            </Item>
+            {
+                !user && (
+                    <Item
+                        key="register"
+                        icon={<UserAddOutlined/>}
+                        className="float-end"
+                    >
+                        <Link to="/register">Register</Link>
+                    </Item>
+                )
+            }
 
-            <Item
-                key="login"
-                icon={<UserOutlined/>}
-                className="float-end"
-            >
-                <Link to="/login">Login</Link>
-            </Item>
+            {
+                !user && (
+                    <Item
+                        key="login"
+                        icon={<UserOutlined/>}
+                        className="float-end"
+                    >
+                        <Link to="/login">Login</Link>
+                    </Item>
+                )
+            }
 
-            <SubMenu key="SubMenu" title="Username" icon={<SettingOutlined/>}>
-                <Item key="setting:1">
-                    Option 1
-                </Item>
-                <Item key="setting:2">
-                    Option 2
-                </Item>
-                <Item
-                    icon={<LogoutOutlined/>}
-                    onClick={logout}
-                    key="logoutItem"
-                >
-                    Logout
-                </Item>
-            </SubMenu>
+            {
+                user && (
+                    <SubMenu key="SubMenu" title="Username" icon={<SettingOutlined/>}>
+                        <Item key="setting:1">
+                            Option 1
+                        </Item>
+                        <Item key="setting:2">
+                            Option 2
+                        </Item>
+                        <Item
+                            icon={<LogoutOutlined/>}
+                            onClick={logout}
+                            key="logoutItem"
+                        >
+                            Logout
+                        </Item>
+                    </SubMenu>
+                )
+            }
         </Menu>
     );
 };
