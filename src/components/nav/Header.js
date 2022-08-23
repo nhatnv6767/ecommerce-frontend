@@ -4,7 +4,7 @@ import {Menu} from 'antd';
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom";
 
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const {SubMenu, Item} = Menu;
@@ -12,9 +12,10 @@ const {SubMenu, Item} = Menu;
 
 const Header = ({auth}) => {
 
-    const history = useNavigate()
     const [current, setCurrent] = useState("home")
     let dispatch = useDispatch()
+    let state = useSelector((state) => state)
+    let history = useNavigate()
 
     const handleClick = (e) => {
         console.log('click ', e);
