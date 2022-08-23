@@ -4,18 +4,23 @@ import {signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify"
 import {Button} from "antd";
 import {MailOutlined} from '@ant-design/icons';
+import {useDispatch} from "react-redux";
 
 const Login = ({auth}) => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("nhatnvse90183@gmail.com");
+    const [password, setPassword] = useState("123456")
 
+    let dispatch = useDispatch()
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
         try {
             const result = await signInWithEmailAndPassword(auth, email, password)
             console.log(result)
+            const {user} = result;
+            const idTokenResult = await user.getIdTokenResult()
+            
         } catch (e) {
             //
         }
