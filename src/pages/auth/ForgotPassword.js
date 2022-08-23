@@ -19,6 +19,16 @@ const ForgotPassword = ({auth}) => {
             handleCodeInApp: true,
         }
         await sendPasswordResetEmail(auth, email, config)
+            .then(() => {
+                setEmail("")
+                setLoading(false)
+                toast.success("Check your email for password reset link")
+            })
+            .catch((err) => {
+                setLoading(false)
+                toast.error(err.message)
+                console.log("ERROR MSG IN FORGOT PASSWORD", err)
+            })
     }
 
     return (
