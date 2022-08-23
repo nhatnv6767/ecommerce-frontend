@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 // import {auth} from "../../firebase"
 import {sendSignInLinkToEmail} from "firebase/auth";
 import {toast} from "react-toastify"
+import {Button} from "antd";
+import {MailOutlined} from '@ant-design/icons';
 
 const Login = ({auth}) => {
 
@@ -36,9 +38,15 @@ const Login = ({auth}) => {
                 />
             </div>
             <br/>
-            <button type="submit" className="btn btn-raised">
-                Login
-            </button>
+            <Button
+                onClick={handleSubmit}
+                type="primary"
+                className="mb-3"
+                block
+                shape="round"
+            >
+                Login with Email/Password
+            </Button>
         </form>
     return (
         <div className="container p-5">
