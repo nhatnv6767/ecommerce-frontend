@@ -11,7 +11,7 @@ const Login = ({auth}) => {
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
-
+        console.table(email, password)
     }
 
     const loginForm = () =>
