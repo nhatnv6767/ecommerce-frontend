@@ -5,7 +5,7 @@ import {toast} from "react-toastify"
 import {Button} from "antd";
 import {GoogleOutlined, MailOutlined} from '@ant-design/icons';
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Login = ({auth}) => {
 
@@ -121,6 +121,8 @@ const Login = ({auth}) => {
                     >
                         Login with Google
                     </Button>
+
+                    <Link to="/forgot/password" className="float-end text-danger">Forgot Password</Link>
                 </div>
             </div>
         </div>
