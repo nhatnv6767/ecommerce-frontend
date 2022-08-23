@@ -16,21 +16,25 @@ const Login = ({auth}) => {
 
     const loginForm = () =>
         <form onSubmit={handleSubmit}>
-            <input
-                type="email"
-                className="form-control"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Your email"
-                autoFocus
-            />
-            <input
-                type="password"
-                className="form-control"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                placeholder="Your password"
-            />
+            <div className="form-group">
+                <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Your email"
+                    autoFocus
+                />
+            </div>
+            <div className="form-group">
+                <input
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    placeholder="Your password"
+                />
+            </div>
             <br/>
             <button type="submit" className="btn btn-raised">
                 Login
