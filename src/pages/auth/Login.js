@@ -44,6 +44,9 @@ const Login = ({auth}) => {
                 className="mb-3"
                 block
                 shape="round"
+                icon={<MailOutlined/>}
+                size="large"
+                disabled={!email || password.length < 6}
             >
                 Login with Email/Password
             </Button>
