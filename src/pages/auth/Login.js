@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import {auth} from "../../firebase"
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import {toast} from "react-toastify"
 import {Button} from "antd";
 import {GoogleOutlined, MailOutlined} from '@ant-design/icons';
@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 
 const Login = ({auth}) => {
 
+    const provider = new GoogleAuthProvider();
     const history = useNavigate()
     const [email, setEmail] = useState("nhatnvse90183@gmail.com");
     const [password, setPassword] = useState("")
@@ -41,8 +42,13 @@ const Login = ({auth}) => {
         }
     }
 
-    const googleLogin = () => {
+    const googleLogin = async () => {
+        await signInWithPopup(auth, provider)
+            .then(async (result) => {
+                const {user} = result;
+                const idTokenResult = await user.getIdTokenResult()
 
+            })
     }
 
     const loginForm = () =>
