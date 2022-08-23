@@ -11,12 +11,14 @@ const Login = ({auth}) => {
 
     const history = useNavigate()
     const [email, setEmail] = useState("nhatnvse90183@gmail.com");
-    const [password, setPassword] = useState("123456")
+    const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false)
 
     let dispatch = useDispatch()
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
+        setLoading(true)
         try {
             const result = await signInWithEmailAndPassword(auth, email, password)
             console.log(result)
@@ -35,6 +37,7 @@ const Login = ({auth}) => {
             //
             console.log(e)
             toast.error(e.message)
+            setLoading(false)
         }
     }
 
