@@ -30,7 +30,6 @@ const Login = ({auth}) => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Your password"
-                autoFocus
             />
             <br/>
             <button type="submit" className="btn btn-raised">

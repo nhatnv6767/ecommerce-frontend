@@ -67,6 +67,7 @@ const Header = ({auth}) => {
                 <Item
                     icon={<LogoutOutlined/>}
                     onClick={logout}
+                    key="logoutItem"
                 >
                     Logout
                 </Item>
