@@ -122,7 +122,7 @@ const Login = ({auth}) => {
                         Login with Google
                     </Button>
 
-                    <Link to="/forgot/password" className="float-end text-danger" auth={auth}>Forgot Password</Link>
+                    <Link to="/forgot/password" className="float-end text-danger">Forgot Password</Link>
                 </div>
             </div>
         </div>

@@ -9,12 +9,12 @@ import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Header from "./components/nav/Header";
 import RegisterComplete from "./pages/auth/RegisterComplete"
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 import {getAuth} from "firebase/auth";
 import {app} from "./firebase"
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import async from "async";
 
 
 const App = () => {
@@ -49,6 +49,7 @@ const App = () => {
                 <Route path="/login" element={<Login auth={auth}/>} exact/>
                 <Route path="/register" element={<Register auth={auth}/>} exact/>
                 <Route path="/register/complete" element={<RegisterComplete auth={auth}/>} exact/>
+                <Route path="/forgot/password" element={<ForgotPassword auth={auth}/>} exact/>
             </Routes>
         </>
     );
