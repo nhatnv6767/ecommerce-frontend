@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
 import {signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
 import {toast} from "react-toastify"
@@ -9,6 +9,12 @@ const ForgotPassword = ({auth}) => {
     const history = useNavigate()
     const [email, setEmail] = useState("")
     const [loading, setLoading] = useState(false)
+
+    const {user} = useSelector(state => ({...state}))
+
+    useEffect(() => {
+        if (user && user.token) history("/")
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
