@@ -1,11 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
 import {sendSignInLinkToEmail} from "firebase/auth";
 import {toast} from "react-toastify"
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Register = ({auth}) => {
 
+    const history = useNavigate()
     const [email, setEmail] = useState("");
+    const {user} = useSelector(state => ({...state}))
+
+    useEffect(() => {
+        if (user && user.token) history("/")
+    }, [user])
 
     const handleSubmit = async (e) => {
         // dont reload page
