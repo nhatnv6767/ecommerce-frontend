@@ -14,7 +14,7 @@ const ForgotPassword = ({auth}) => {
 
     useEffect(() => {
         if (user && user.token) history("/")
-    }, [])
+    }, [user])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
