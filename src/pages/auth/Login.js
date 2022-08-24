@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {auth} from "../../firebase"
 import {signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import {toast} from "react-toastify"
 import {Button} from "antd";
 import {GoogleOutlined, MailOutlined} from '@ant-design/icons';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
 const Login = ({auth}) => {
@@ -14,6 +14,11 @@ const Login = ({auth}) => {
     const [email, setEmail] = useState("nhatnvse90183@gmail.com");
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
+    const {user} = useSelector(state => ({...state}))
+
+    useEffect(() => {
+        if (user && user.token) history("/")
+    }, [user])
 
     let dispatch = useDispatch()
     const handleSubmit = async (e) => {
