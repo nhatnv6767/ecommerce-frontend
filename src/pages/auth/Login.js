@@ -6,6 +6,15 @@ import {Button} from "antd";
 import {GoogleOutlined, MailOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
+import axios from "axios"
+
+const createOrUpdateUser = async (authtoken) => {
+    return await axios.post(process.env.REACT_APP_API, {}, {
+        headers: {
+            authtoken: authtoken,
+        }
+    })
+}
 
 const Login = ({auth}) => {
 
