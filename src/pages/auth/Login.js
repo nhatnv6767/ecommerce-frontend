@@ -11,7 +11,7 @@ import axios from "axios"
 const createOrUpdateUser = async (authtoken) => {
     return await axios.post(process.env.REACT_APP_API, {}, {
         headers: {
-            authtoken: authtoken,
+            authtoken,
         }
     })
 }
@@ -40,14 +40,20 @@ const Login = ({auth}) => {
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult()
 
-            dispatch({
-                type: "LOGGED_IN_USER",
-                payload: {
-                    email: user.email,
-                    token: idTokenResult.token,
-                }
-            })
-            history('/')
+            await createOrUpdateUser((idTokenResult.token))
+                .then(
+                    res => console.log("CREATE OR UPDATE RES", res)
+                )
+                .catch()
+
+            // dispatch({
+            //     type: "LOGGED_IN_USER",
+            //     payload: {
+            //         email: user.email,
+            //         token: idTokenResult.token,
+            //     }
+            // })
+            // history('/')
         } catch (e) {
             //
             console.log(e)
