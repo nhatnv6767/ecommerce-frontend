@@ -3,20 +3,22 @@ import {
     Route,
 } from "react-router-dom";
 import {useSelector} from "react-redux";
+import History from "../../pages/user/History";
 
-const UserRoute = ({children, ...rest}) => {
+const UserRoute = ({auth}) => {
 
     const {user} = useSelector(state => ({...state}))
 
     return (
-
         user && user.token
-            ? (<Route
-                {...rest}
-                render={() => children}
-            />)
-            : (<h1 className="text-danger">Loading...</h1>)
-
+            ? (
+                <History auth={auth}/>
+            )
+            : (
+                <>
+                    <h1 className="text-danger">Loading...</h1>
+                </>
+            )
     );
 };
 

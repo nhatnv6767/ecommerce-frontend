@@ -62,7 +62,7 @@ const App = () => {
                 <Route path="/register" element={<Register auth={auth}/>} exact/>
                 <Route path="/register/complete" element={<RegisterComplete auth={auth}/>} exact/>
                 <Route path="/forgot/password" element={<ForgotPassword auth={auth}/>} exact/>
-                <UserRoute path="/user/history" element={<History auth={auth}/>} exact/>
+                <Route path="/user/history" element={<UserRoute auth={auth}/>} exact/>
             </Routes>
         </>
     );
