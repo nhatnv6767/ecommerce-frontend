@@ -17,6 +17,7 @@ import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {currentUser} from "./functions/auth";
 import History from "./pages/user/History";
+import UserRoute from "./components/routes/UserRoute";
 
 
 const App = () => {
@@ -61,7 +62,7 @@ const App = () => {
                 <Route path="/register" element={<Register auth={auth}/>} exact/>
                 <Route path="/register/complete" element={<RegisterComplete auth={auth}/>} exact/>
                 <Route path="/forgot/password" element={<ForgotPassword auth={auth}/>} exact/>
-                <Route path="/user/history" element={<History auth={auth}/>} exact/>
+                <UserRoute path="/user/history" element={<History auth={auth}/>} exact/>
             </Routes>
         </>
     );
