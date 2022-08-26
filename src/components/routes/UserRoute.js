@@ -5,10 +5,18 @@ import {
 import {useSelector} from "react-redux";
 
 const UserRoute = ({children, ...rest}) => {
-    return (
-        <div>
 
-        </div>
+    const {user} = useSelector(state => ({...state}))
+
+    return (
+
+        user && user.token
+            ? (<Route
+                {...rest}
+                render={() => children}
+            />)
+            : (<h1 className="text-danger">Loading</h1>)
+
     );
 };
 
