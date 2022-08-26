@@ -1,6 +1,6 @@
 import React from 'react';
 
-const History = () => {
+const History = ({auth}) => {
     return (
         <div className="container-fluid">
             <div className="row">
