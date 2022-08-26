@@ -4,7 +4,7 @@ const History = () => {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col">User page</div>
+                <div className="col">User history page</div>
             </div>
         </div>
     );
