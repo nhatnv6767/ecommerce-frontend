@@ -15,7 +15,7 @@ const UserRoute = ({children, ...rest}) => {
                 {...rest}
                 render={() => children}
             />)
-            : (<h1 className="text-danger">Loading</h1>)
+            : (<h1 className="text-danger">Loading...</h1>)
 
     );
 };
