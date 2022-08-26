@@ -8,15 +8,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {createOrUpdateUser} from "../../functions/auth"
 
-const roleBasedRedirect = (res) => {
-    if (res.data.role === "admin") {
-        history("/admin/dashboard")
-    } else {
-        history("/user/history")
-    }
-}
-
-
 const Login = ({auth}) => {
 
     const provider = new GoogleAuthProvider();
@@ -31,6 +22,13 @@ const Login = ({auth}) => {
     }, [user])
 
     let dispatch = useDispatch()
+    const roleBasedRedirect = (res) => {
+        if (res.data.role === "admin") {
+            history("/admin/dashboard")
+        } else {
+            history("/user/history")
+        }
+    }
     const handleSubmit = async (e) => {
         // dont reload page
         e.preventDefault()
@@ -54,11 +52,12 @@ const Login = ({auth}) => {
                                 _id: res.data._id,
                             }
                         })
+                        roleBasedRedirect(res)
                     }
                 )
                 .catch(err => console.log(err))
 
-            history('/')
+            // history('/')
         } catch (e) {
             //
             console.log(e)
