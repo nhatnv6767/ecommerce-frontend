@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import {useSelector} from "react-redux";
 import History from "../../pages/user/History";
+import LoadingToRedirect from "./LoadingToRedirect";
 
 const UserRoute = ({auth}) => {
 
@@ -15,7 +16,7 @@ const UserRoute = ({auth}) => {
                 <History auth={auth}/>
             )
             : (
-                <h1 className="text-danger">Loading...</h1>
+                <LoadingToRedirect/>
             )
     );
 };
