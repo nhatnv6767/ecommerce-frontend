@@ -4,15 +4,7 @@ import {signInWithEmailLink, updatePassword} from "firebase/auth";
 import {toast} from "react-toastify"
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import axios from "axios";
-
-const createOrUpdateUser = async (authtoken) => {
-    return await axios.post(`${process.env.REACT_APP_API}/create-or-update-user`, {}, {
-        headers: {
-            authtoken,
-        }
-    })
-}
+import {createOrUpdateUser} from "../../functions/auth"
 
 const RegisterComplete = ({auth}) => {
 
