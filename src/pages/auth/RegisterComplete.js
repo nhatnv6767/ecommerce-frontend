@@ -61,7 +61,7 @@ const RegisterComplete = ({auth}) => {
                             })
                         }
                     )
-                    .catch()
+                    .catch(err => console.log(err))
 
 
                 // redirect

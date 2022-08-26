@@ -48,7 +48,7 @@ const Login = ({auth}) => {
                         })
                     }
                 )
-                .catch()
+                .catch(err => console.log(err))
 
             history('/')
         } catch (e) {
@@ -79,7 +79,7 @@ const Login = ({auth}) => {
                             })
                         }
                     )
-                    .catch()
+                    .catch(err => console.log(err))
                 history('/')
             }).catch(err => {
                 console.log(err)
