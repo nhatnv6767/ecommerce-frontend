@@ -15,9 +15,7 @@ const UserRoute = ({auth}) => {
                 <History auth={auth}/>
             )
             : (
-                <>
-                    <h1 className="text-danger">Loading...</h1>
-                </>
+                <h1 className="text-danger">Loading...</h1>
             )
     );
 };
