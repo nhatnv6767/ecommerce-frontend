@@ -42,18 +42,22 @@ const Login = ({auth}) => {
 
             await createOrUpdateUser((idTokenResult.token))
                 .then(
-                    res => console.log("CREATE OR UPDATE RES", res)
+                    res => {
+                        dispatch({
+                            type: "LOGGED_IN_USER",
+                            payload: {
+                                name: res.data.name,
+                                email: res.data.email,
+                                token: idTokenResult.token,
+                                role: res.data.role,
+                                _id: res.data._id,
+                            }
+                        })
+                    }
                 )
                 .catch()
 
-            // dispatch({
-            //     type: "LOGGED_IN_USER",
-            //     payload: {
-            //         email: user.email,
-            //         token: idTokenResult.token,
-            //     }
-            // })
-            // history('/')
+            history('/')
         } catch (e) {
             //
             console.log(e)
