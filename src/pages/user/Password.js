@@ -47,7 +47,7 @@ const Password = ({auth}) => {
                     <UserNav/>
                 </div>
                 <div className="col">
-                    <h4>Password Update</h4>
+                    {loading ? <h4 className="text-danger">Loading...</h4> : <h4>Password Update</h4>}
                     {passwordUpdateForm()}
                 </div>
             </div>
