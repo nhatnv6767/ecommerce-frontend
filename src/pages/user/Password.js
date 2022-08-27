@@ -1,14 +1,26 @@
 import React, {useState} from 'react';
 import UserNav from "../../components/nav/UserNav";
 import {toast} from "react-toastify";
+import {updatePassword} from "firebase/auth";
 
 const Password = ({auth}) => {
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
 
+        const currentUser = await auth.currentUser()
+        await updatePassword(currentUser, password)
+            .then(() => {
+                setLoading(false)
+                toast.success("Password updated successfully")
+            })
+            .catch(err => {
+                setLoading(false)
+                toast.error(err.message)
+            })
     }
 
     const passwordUpdateForm = () =>
