@@ -33,8 +33,9 @@ const Password = ({auth}) => {
                         onChange={e => setPassword(e.target.value)}
                         className="form-control"
                         placeholder="Enter new password"
+                        disabled={loading}
                     />
-                    <button className="btn btn-primary">Submit</button>
+                    <button className="btn btn-primary" disabled={!password || loading}>Submit</button>
                 </div>
             </form>
         )
