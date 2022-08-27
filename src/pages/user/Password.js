@@ -35,7 +35,12 @@ const Password = ({auth}) => {
                         placeholder="Enter new password"
                         disabled={loading}
                     />
-                    <button className="btn btn-primary" disabled={!password || loading}>Submit</button>
+                    <button
+                        className="btn btn-primary"
+                        disabled={!password || password.length < 6 || loading}
+                    >
+                        Submit
+                    </button>
                 </div>
             </form>
         )
