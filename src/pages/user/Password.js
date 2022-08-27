@@ -7,7 +7,19 @@ const Password = ({auth}) => {
     const [loading, setLoading] = useState(false)
 
     const passwordUpdateForm = () =>
-        <form>from</form>
+        (
+            <form>
+                <div className="form-group">
+                    <label>Your Password</label>
+                    <input
+                        type="password"
+                        onChange={e => setPassword(e.target.value)}
+                        className="form-control"
+                        placeholder="Enter new password"
+                    />
+                </div>
+            </form>
+        )
 
     return (
         <div className="container-fluid">
