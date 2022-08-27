@@ -11,7 +11,7 @@ const Password = ({auth}) => {
         e.preventDefault();
         setLoading(true)
 
-        const currentUser = await auth.currentUser()
+        const currentUser = await auth.currentUser
         await updatePassword(currentUser, password)
             .then(() => {
                 setLoading(false)
