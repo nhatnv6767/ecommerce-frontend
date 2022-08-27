@@ -15,6 +15,7 @@ const Password = ({auth}) => {
         await updatePassword(currentUser, password)
             .then(() => {
                 setLoading(false)
+                setPassword("")
                 toast.success("Password updated successfully")
             })
             .catch(err => {
@@ -34,6 +35,7 @@ const Password = ({auth}) => {
                         className="form-control"
                         placeholder="Enter new password"
                         disabled={loading}
+                        value={password}
                     />
                     <button
                         className="btn btn-primary"
