@@ -16,8 +16,9 @@ import {app} from "./firebase"
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {currentUser} from "./functions/auth";
-import History from "./pages/user/History";
 import UserRoute from "./components/routes/UserRoute";
+import Password from "./pages/user/Password";
+import Wishlist from "./pages/user/Wishlist";
 
 
 const App = () => {
@@ -63,6 +64,8 @@ const App = () => {
                 <Route path="/register/complete" element={<RegisterComplete auth={auth}/>} exact/>
                 <Route path="/forgot/password" element={<ForgotPassword auth={auth}/>} exact/>
                 <Route path="/user/history" element={<UserRoute auth={auth}/>} exact/>
+                <Route path="/user/password" element={<Password auth={auth}/>} exact/>
+                <Route path="/user/wishlist" element={<Wishlist auth={auth}/>} exact/>
             </Routes>
         </>
     );
