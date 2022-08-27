@@ -6,9 +6,14 @@ const Password = ({auth}) => {
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
     const passwordUpdateForm = () =>
         (
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Your Password</label>
                     <input
@@ -17,6 +22,7 @@ const Password = ({auth}) => {
                         className="form-control"
                         placeholder="Enter new password"
                     />
+                    <button className="btn btn-primary">Submit</button>
                 </div>
             </form>
         )
